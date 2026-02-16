@@ -1,0 +1,8 @@
+<%# This partial renders the trip dates for a given trip.
+    It displays the start date and end date of the trip in an h5 header.
+    The @trip instance variable is expected to have start_date and end_date attributes. %>
+<div class="trip-dates">
+    <h5>
+        <span><%= @trip.start_date %></span> - <span><%= @trip.end_date %></span>
+    </h5>
+</div>

@@ -1,0 +1,71 @@
+/* Page title styling */
+#pagetitle {
+    font-size: 2.3rem;
+    margin-left: 3rem;
+}
+
+/* Container for landing page content */
+.landing-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin: 7rem 9rem;
+}
+
+/* Image styling within landing container */
+.landing-container img {
+    width: 40rem;
+    height: 50rem;
+    border-radius: 3rem;
+    border: 3.3rem solid white;
+    overflow: hidden;
+}
+
+/* Tagline styling */
+.tagline {
+    padding: 1rem;
+    margin: 2rem;
+    text-align: left;
+}
+
+/* Team section styling */
+#team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 7rem 0;
+}
+
+/* Quote container styling */
+.quote-container {
+    background-color: white;
+    color: #2a2e30;
+    margin: 4rem 0;
+    width: 100%;
+    padding: 10rem 5rem;
+    font-style: italic;
+}
+
+/* Features container card styling */
+.features-container .card-container div.card {
+    border-radius: 30px;
+    margin: 2rem;
+    height: 22rem;
+    width: 28rem;
+    padding: 2rem;
+}
+
+/* Card body text color */
+.features-container .card .card-body {
+    color: #2a2e30;
+}
+
+/* Features container layout */
+.features-container div.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem;
+}

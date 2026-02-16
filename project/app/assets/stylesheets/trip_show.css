@@ -1,0 +1,133 @@
+.show-container, .show-container li, svg, #expenses, .expenses li {
+    background: white;
+    color: #2a2e30;
+}
+
+#expenses-by-trip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;  
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.card-header button {
+    font-size: x-large;
+}
+/* This fixes visibility issue */
+.collapse.in {
+    display: block;
+}
+
+.trip-details .trip-dates, .expenses .spent-container {
+    grid-area: tp;
+    background-color: white;
+}
+
+.trip-details .trip-photo, .expenses .donut-container {
+    grid-area: sd;
+    background-color: white;
+}
+
+.trip-details .trip-hotel {
+    grid-area: ht;
+}
+
+.trip-details .trip-notes, .expenses .owes-container {
+    grid-area: nt;
+}
+
+.trip-details .trip-participants, .expenses .debt-container {
+    grid-area: pt;
+    background-color: #f8f8f8;
+}
+
+.trip-details .trip-participants {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trip-details .trip-actions, .expenses .expenses-container {
+    grid-area: ft;
+    background-color: white;
+}
+
+.trip-actions a {
+    color: #2a2e30;
+}
+
+.trip-details div {
+    background-color: #f8f8f8;
+}
+
+.trip-details li {
+    background-color: #f8f8f8;
+    padding: 1rem;
+}
+
+.trip-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "tp tp"
+    "sd ht"
+    "sd pt"
+    "sd pt"
+    "nt pt"
+    "ft ft";
+    grid-gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.expenses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "tp tp"
+    "sd nt"
+    "sd nt"
+    "pt pt"
+    "ft ft";
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+span {
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Arsenal", Arial, Helvetica, sans-serif;
+}
+
+.trip-image img {
+    width: 500px;
+    height: 500px;
+}
+
+table, .expenses table td ul li {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #f8f8f8;
+    text-align: center;
+
+}
+
+table {
+    width: 100%;
+}
+
+.user-name {
+    font-size: 1.75rem;
+}
+
+form .field label, form .field input, form div label, form div input {
+    font-size: 1.5rem;
+}
+
+

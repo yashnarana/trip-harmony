@@ -1,0 +1,91 @@
+<%= form_with(model: @trip, local: true) do |form| %>
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+      <ul>
+        <% @trip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Trip Details Fields -->
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hotel %>
+    <%= form.text_area :hotel, placeholder: "Enter hotel address", rows: 2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check_in %>
+    <%= form.time_field :check_in %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trip %>
+    <%= form.text_area :trip, placeholder: "Enter any additional notes", rows: 6, style: "width: 50%;" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save Changes', class: 'button save-button' %>
+  </div>
+<% end %>
+
+<!-- Form to Add Participants -->
+
+<% if !@trip.new_record? %>
+  <h3>Add Participant by Email</h3>
+  <%= form_with url: add_participant_trip_path(@trip), method: :post, local: true do |form| %>
+    <div class="field">
+      <%= form.label :participant_email, "Add Participant by Email" %>
+      <%= form.text_field :participant_email, placeholder: "Enter participant email" %>
+      <%= form.submit "Add", class: "button add-participant-button" %>
+    </div>
+  <% end %>
+  <!-- List of Current Participants with Remove Option -->
+  <div class="current-participants">
+    <h3>Current Participants:</h3>
+    <% if @trip.participants.any? %>
+      <ul class="unordered-list-trip">
+        <% @trip.participants.each do |participant| %>
+          <li>
+            <strong>Email:</strong> <%= participant.email %>
+            <% if participant.first_name.present? %>
+              <strong>Name:</strong> <%= participant.first_name %>
+            <% end %>
+            
+            <%= form_with url: remove_participant_trip_path(@trip), method: :post, local: true do |f| %>
+              <%= hidden_field_tag :participant_email, participant.email, {:id => participant.email} %>
+              <%= f.submit 'Remove Participant', data: { confirm: 'Are you sure you want to remove this participant?' }, class: 'remove-participant-button' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No participants added yet.</p>
+    <% end %>
+  </div>
+<% end %>
+
+

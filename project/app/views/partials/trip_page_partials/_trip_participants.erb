@@ -1,0 +1,15 @@
+<div class="current-participants">
+  <h5>Participants:</h5>
+  <% if @trip.participants.any? %> <!-- Check if there are any participants -->
+    <ul class="participants-list">
+      <% @trip.participants.each do |participant| %> <!-- Iterate through each participant -->
+        <li class="participant-item">
+          <!-- Display participant's email and full name -->
+          <strong>Email:</strong> <%= participant.email %> - <%= participant.first_name %> <%= participant.last_name %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No participants added yet.</p> <!-- Message if no participants are present -->
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<%# This partial renders a trip photo if attached, otherwise it displays a default 'airplane.jpg' image. %>
+<%# The 'trip-image' class is applied to the div containing the image for styling purposes. %>
+<% if @trip.photo.attached? %>
+  <div class="trip-image"><%= image_tag(@trip.photo, alt: 'Trip Photo', style:"") %></div>
+<% else %>
+  <div class="trip-image"><%= image_tag('airplane.jpg', alt: 'Trip Photo', style:"") %></div>
+<% end %>

@@ -1,0 +1,123 @@
+/* Trip image sizing for thumbnail */
+img {
+    width: 250px;
+    height: 250px;
+}
+
+#trip-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Space around items */
+    align-items: center; /* Align items at the start */
+    align-content: flex-start; /* Align content at the start */
+    list-style-type: none; /* Remove list bullets */
+    flex-grow: 20; /* Allow the navigation to grow */
+    font-size: xx-large;
+    background-color: #e6e6e6;
+}
+
+/* Cards */
+/* Card styles for trip and shared cards */
+.trip-card, .shared-card {
+    color: white;
+    border-radius: 3rem;
+    padding: 20px;
+    margin: 2rem;
+    width: 25%; 
+    height: 20rem;
+}
+
+/* Image styles within trip and shared cards */
+.trip-card img, .shared-card img {
+    margin: 0;
+    padding: 0;
+    border-radius: 1.2rem;
+    border-style: solid;
+    border-color: white;
+    border-width: 1.2rem;
+}
+
+/* Link styles within trip and shared cards */
+.trip-card a, #shared-card a {
+    color: white;
+}
+
+/* Button styles within trip and shared cards */
+.trip-card button, .shared-card button {
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+/* Container styles within trip and shared cards */
+.trip-card .card-container, .shared-card .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 7rem 0;
+}
+
+/* Member card styles */
+.member-card {
+    background-color: white;
+    color: #345c72;
+    border-radius: 3rem;
+    padding: 30px;
+    margin: 1rem;
+}
+
+/* Button styles within trip cards */
+.trip-card .btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+/* Participants list styles */
+.participants-list, .participants-list-cards {
+    color: black;
+    height: 15.5rem;
+    width: 17rem;
+    border-radius: 25px;
+}
+
+/* Background color for participants list cards */
+.participants-list-cards {
+    background-color: white;
+}
+
+/* Current participants container styles */
+.current-participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Hover effect for shadow */
+.hover-shadow:hover {
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Homepage styles */
+.homepage {
+    color: #2a2e30;
+    background-color: white;
+    height: auto;
+    margin: 0px;
+}
+
+/* Shared links styles */
+.shared-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Trip actions container styles */
+.trip-actions .trip-actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin: 3.5rem 7rem;
+    font-size: 1.5rem;
+}

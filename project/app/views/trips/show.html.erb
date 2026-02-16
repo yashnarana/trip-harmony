@@ -1,0 +1,52 @@
+<div class="show-container">
+  <h1><%= @trip.name %></h1>
+
+  <!-- Render the trip navigation bar -->
+  <%= render "partials/nav_bars/trip_nav_bar" %>
+
+  <!-- Trip details section -->
+  <div id="trip-details" class="trip-details">
+    <div class="trip-photo">
+      <%= render "partials/trip_page_partials/trip_photo" %>
+    </div>
+
+    <div class="trip-dates">
+      <%= render "partials/trip_page_partials/trip_dates" %>
+    </div>
+
+    <div class="trip-hotel">
+      <%= render "partials/trip_page_partials/trip_hotel" %>
+    </div>
+    <div class="trip-notes">
+      <%= render "partials/trip_page_partials/trip_notes" %>
+    </div>
+    <div class="trip-participants">
+      <%= render "partials/trip_page_partials/trip_participants" %>
+    </div>
+    <div class="trip-actions">
+      <%= render "partials/trip_page_partials/trip_actions" %>
+    </div>
+  </div>
+</div>
+
+<!-- Expenses section, hidden by default -->
+<div id="expenses" class="expenses" style="display: none;">
+  <div class="donut-container">
+    <%= render "partials/expenses_partials/donut_chart" %>
+  </div>
+  <div class="spent-container">
+    <%= render "partials/expenses_partials/money_spent" %>
+  </div>
+  <% settlements = {} %> <!-- Initialize settlements hash -->
+  <div class="owes-container">
+    <div class="partial-container">
+      <%= render "partials/expenses_partials/trip_owes", settlements: settlements %>
+    </div>
+  </div>
+  <div class="debt-container">
+    <%= render "partials/expenses_partials/debt_settlement", settlements: settlements %>
+  </div>
+  <div class="expenses-container">
+    <%= render "partials/expenses_partials/expenses" %>
+  </div>
+</div>

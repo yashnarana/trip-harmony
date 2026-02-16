@@ -1,0 +1,7 @@
+<div class="container-fluid" id="shared-card">
+    <% @participating_trips.each do |trip| %>
+        <% unless trip.creator == current_user %> <!-- Skip rendering if the current user is the creator of the trip -->
+            <%= render "partials/card_partials/card_layout", trip: trip %> <!-- Render the card layout partial for each trip -->
+        <% end %>
+    <% end %>
+</div>

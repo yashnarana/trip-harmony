@@ -1,0 +1,33 @@
+<div id="<%= dom_id trip %>">
+  <p>
+    <strong>Name:</strong>
+    <%= trip.name %>
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    <%= trip.start_date %>
+  </p>
+
+  <p>
+    <strong>End date:</strong>
+    <%= trip.end_date %>
+  </p>
+
+  <p>
+    <%= image_tag(trip.photo, style="") %>
+  </p>
+
+  <p>
+    <strong>Hotel:</strong>
+    <%= trip.hotel %>
+  </p>
+
+  <p>
+    <strong>Notes:</strong>
+    <%= trip.notes %>
+  </p>
+
+  <button class="btn"> <%= link_to 'Delete', trip_path(trip), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+
+</div>

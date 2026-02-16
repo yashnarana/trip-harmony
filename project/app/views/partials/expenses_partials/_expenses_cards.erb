@@ -1,0 +1,35 @@
+<% @trip.expenses.each do |expense| %>
+    <% print(expense.categories) %> <!-- Print the categories of the current expense for debugging purposes -->
+    <% if expense.categories == expense_cat %> <!-- Check if the expense category matches the given category -->
+        <div class="card">
+            <div id="<%= dom_id expense %>"> <!-- Generate a unique DOM ID for the expense -->
+                <div class="card-header" id="heading<%= expense.id %>">
+                    <strong>Description:</strong>
+                    <%= expense.description %> <!-- Display the expense description -->
+                </div>
+
+                <div class="card-body">
+                    <div class="card-block">
+                        <strong>T amount:</strong>
+                        <%= expense.t_amount %> <!-- Display the total amount of the expense -->
+                    </div>
+                    <div class="card-block">
+                        <strong>Expense date:</strong>
+                        <%= expense.expense_date %> <!-- Display the date of the expense -->
+                    </div>
+                    <div class="card-block">
+                        <% if expense.participants.present? %> <!-- Check if there are participants for the expense -->
+                            <strong>Participants:</strong>
+                            <% expense.participants.each do |participant| %> <!-- List each participant's email -->
+                                <%= participant.email %><br>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <p>
+                        <%= link_to "Show this expense", expense %> <!-- Link to the detailed view of the expense -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>

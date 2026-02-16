@@ -1,0 +1,62 @@
+<% if @trip.participants.any? %>
+  <% @trip.participants.each do |user| %>
+    <% settlements[user.email] = {} %>
+
+    <% user_summary = @user_owes_summary[user.id] %>
+    <% next unless user_summary %> <!-- Skip if no summary available -->
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2" class="user-name"><%= user.email %></th>
+        </tr>
+        <tr>
+          <th>Participants Owe <%= user.email %></th>
+          <th><%= user.email %> Owes Participants</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <% if user_summary[:participants_owe].any? %>
+              <ul>
+                <% user_summary[:participants_owe].each do |participant| %>
+                <!-- Prevents user from needing to see information about paying themselves -->
+                  <% unless participant[:email] == user.email %>
+                    <li><%= participant[:email] %>: $<%= participant[:owed_amount] %></li>
+                    <!-- Tallies up total amount needing to be paid -->
+                    <% settlements[user.email][participant[:email]] = participant[:owed_amount] %>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% else %>
+              <p>No participants owe you money for this trip.</p>
+            <% end %>
+          </td>
+
+          <% user_summary = @user_debts_summary[user.id] %>
+          <% next unless user_summary %> <!-- Skip if no summary available -->
+
+          <td>
+            <% if user_summary[:participants_pay].any? %>
+              <ul>
+                <% user_summary[:participants_pay].each do |participant| %>
+                <!-- Prevents debts to show up for a user to themselves -->
+                  <% unless participant[:email] == user.email %>
+                    <li><%= participant[:email] %>: $<%= participant[:pay_amount] %></li>
+                    <% if settlements[user.email].key?(participant[:email]) && settlements[user.email][participant[:email]] > 0 %>
+                    <!-- Tallies up total amount needing to be paid -->
+                      <% settlements[user.email][participant[:email]] -= participant[:pay_amount] %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% else %>
+              <p>You don't owe any participants for this trip.</p>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

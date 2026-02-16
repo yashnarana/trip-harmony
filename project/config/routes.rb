@@ -1,0 +1,44 @@
+Rails.application.routes.draw do
+  get "static_pages/landing"
+  get "static_pages/invitations"
+  get "static_pages/expenses"
+
+  resources :expenses do
+    member do
+      post "add_participant"
+      post "remove_participant"
+    end
+  end
+  devise_for :users, controllers: { sessions: "users/sessions" }
+  resources :trips do
+    member do
+      post "add_participant"
+      post "remove_participant"
+    end
+    resources :expenses
+  end
+
+  get "profile", to: "users#show", as: :user_profile
+  get "profile/edit", to: "users#edit", as: :edit_user_profile
+  patch "profile", to: "users#update", as: :update_user_profile
+
+  # Add a custom route for signing out via GET
+  devise_scope :user do
+    get "users/sign_out", to: "users/sessions#destroy", as: :get_sign_out
+  end
+
+
+  root "trips#index"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", as: :rails_health_check
+
+  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+
+  # Defines the root path route ("/")
+  # root "posts#index"
+end

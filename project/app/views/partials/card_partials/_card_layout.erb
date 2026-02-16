@@ -1,0 +1,27 @@
+<div class="card mx-auto flex-wrap bg-dark hover-shadow trip-card" style="width: 90%">
+    <!-- Link to the trip's show page, styled as a stretched link -->
+    <%= link_to '', trip_path(trip), class: "stretched-link" %>
+    <div class="d-flex justify-content-around">
+        <% if trip.photo.attached? %>
+            <!-- Display trip photo if attached -->
+            <div class="thumbnail border-0"><%= image_tag(trip.photo, alt: 'Trip Photo') %></div>
+        <% else %>
+            <!-- Display default airplane image if no photo is attached -->
+            <div class="thumbnail border-0"><%= image_tag 'airplane.jpg', alt: 'Airplane' %></div>
+        <% end %>
+        <div class="card-block">
+            <!-- Trip name linking to the trip's show page -->
+            <h3 class="card-title"><%= link_to trip.name, trip_path(trip) %></h3>
+            <div class="card-body">
+                <!-- Display trip details -->
+                <p><strong>Start Date:</strong> <%= trip.start_date %></p>
+                <p><strong>End Date:</strong> <%= trip.end_date %></p>
+                <p><strong>Participants:</strong> <%= trip.participants.count %></p>
+            </div>
+        </div>
+        <!-- Render partial for trip expenses -->
+        <%= render "partials/card_partials/trip_expenses", trip: trip %>
+        <!-- Render partial for trip participants -->
+        <%= render "partials/card_partials/trip_card_participants", trip: trip %>
+    </div>
+</div>

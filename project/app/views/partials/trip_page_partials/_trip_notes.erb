@@ -1,0 +1,5 @@
+<%# This partial renders the trip notes section if the trip has notes. %>
+<% if @trip.trip.present? %>
+    <h5><strong>Notes:</strong></h5>
+    <p><%= @trip.trip %></p>
+<% end %>

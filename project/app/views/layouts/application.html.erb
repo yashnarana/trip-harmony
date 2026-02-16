@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for(:title) || "Project" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link href='https://fonts.googleapis.com/css?family=Radley' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Arsenal' rel='stylesheet'>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'landing_page', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'nav_bars', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'trip_homepage', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'trip_show', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    
+    <!-- Include the necessary JavaScript libraries -->
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js' %>
+    <%= javascript_include_tag "donut_chart" %>
+    <%= javascript_include_tag "show_expenses" %>
+    <%= javascript_include_tag "selected" %>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/billboard.js/dist/billboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <header>
+      <% if user_signed_in? %>
+        <%= render "partials/nav_bars/defaultheader" %>
+      <% else %>
+        <%= render "partials/nav_bars/firstheader" %>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<h2>Expenses</h2>
+<%= link_to "New expense", new_trip_expense_path(@trip) %>
+
+<div id="accordion">
+    <!-- Food Expenses Card -->
+    <div class="card" id="food-expenses">
+        <div class="card-header" id="foodHeading">
+            <button class="btn" data-toggle="collapse" type="button" data-target="#collapseFood" aria-expanded="false" aria-controls="collapseFood">
+                Food
+            </button>
+        </div>
+        <div class="collapse" id="collapseFood" aria-labelledby="foodHeading">
+            <div class="card-body">
+                <%= render "partials/expenses_partials/expenses_cards", expense_cat:"Food" %>
+            </div>
+        </div>
+    </div>
+    <!-- Lodging Expenses Card -->
+    <div class="card" id="lodging-expenses">
+        <div class="card-header" id="lodgingHeading">
+            <button class="btn" data-toggle="collapse" type="button" data-target="#collapseLodging" aria-expanded="false" aria-controls="collapseLodging">
+                Lodging
+            </button>
+        </div>
+        <div class="collapse" id="collapseLodging" aria-labelledby="lodgingHeading">
+            <div class="card-body">
+                <%= render "partials/expenses_partials/expenses_cards", expense_cat:"Lodging" %>
+            </div>
+        </div>
+    </div>
+    <!-- Transportation Expenses Card -->
+    <div class="card" id="transportation-expenses">
+        <div class="card-header" id="transportationHeading">
+            <button class="btn" data-toggle="collapse" type="button" data-target="#collapseTransportation" aria-expanded="false" aria-controls="collapseTransportation">
+                Transportation
+            </button>
+        </div>
+        <div class="collapse" id="collapseTransportation" aria-labelledby="transportationHeading">
+            <div class="card-body">
+                <%= render "partials/expenses_partials/expenses_cards", expense_cat:"Transportation" %>
+            </div>
+        </div>
+    </div>
+    <!-- Entertainment Expenses Card -->
+    <div class="card" id="entertainment-expenses">
+        <div class="card-header" id="entertainmentHeading">
+            <button class="btn" data-toggle="collapse" type="button" data-target="#collapseEntertainment" aria-expanded="false" aria-controls="collapseEntertainment">
+                Entertainment
+            </button>
+        </div>
+        <div class="collapse" id="collapseEntertainment" aria-labelledby="entertainmentHeading">
+            <div class="card-body">
+                <%= render "partials/expenses_partials/expenses_cards", expense_cat:"Entertainment" %>
+            </div>
+        </div>
+    </div>
+    <!-- Miscellaneous Expenses Card -->
+    <div class="card" id="misc-expenses">
+        <div class="card-header" id="miscHeading">
+            <button class="btn" data-toggle="collapse" type="button" data-target="#collapseMisc" aria-expanded="false" aria-controls="collapseMisc">
+                Misc
+            </button>
+        </div>
+        <div class="collapse" id="collapseMisc" aria-labelledby="miscHeading">
+            <div class="card-body">
+                <%= render "partials/expenses_partials/expenses_cards", expense_cat:"Misc" %>
+            </div>
+        </div>
+    </div>
+</div>

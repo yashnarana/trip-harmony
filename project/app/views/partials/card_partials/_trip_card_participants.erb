@@ -1,0 +1,18 @@
+<div class="card-block participants-list-cards">
+    <div class="container">
+        <% if trip.participants.any? %>
+            <% trip.participants.each do |participant| %>
+                <% if participant == trip.creator %>
+                    <!-- Display the creator's name with a "(Creator)" label -->
+                    <p><%= participant.first_name %> (Creator)</p>
+                <% else %>
+                    <!-- Display the participant's name -->
+                    <p><%= participant.first_name %></p>
+                <% end %>
+            <% end %>
+        <% else %>
+            <!-- Message displayed when there are no participants -->
+            <p>No participants added yet.</p>
+        <% end %>
+    </div>
+</div>

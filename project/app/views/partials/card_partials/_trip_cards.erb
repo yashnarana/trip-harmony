@@ -1,0 +1,6 @@
+<div class="container-fluid" id="trip-card">
+    <% @created_trips.each do |trip| %>
+        <!-- Render the card layout partial for each trip -->
+        <%= render "partials/card_partials/card_layout", trip: trip %>
+    <% end %>
+</div>

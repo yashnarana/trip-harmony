@@ -1,0 +1,9 @@
+<%# This partial renders action links for a trip page %>
+<%# It includes links to edit the trip, delete the trip (if the current user is the creator), and go back to the list of trips %>
+<div class="trip-actions">
+  <%= link_to 'Edit Trip', edit_trip_path(@trip), class: 'button' %>
+  <% if @trip.creator == current_user %>
+    <%= link_to 'Delete this trip', @trip, method: :delete, class: 'button' %>
+  <% end %>
+  <%= link_to 'Back to Your Trips', trips_path, class: 'button' %>
+</div>

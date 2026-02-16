@@ -1,0 +1,36 @@
+<div id="<%= dom_id expense %>">
+  <p>
+    <strong>Description:</strong>
+    <%= expense.description %>
+  </p>
+
+  <p>
+    <strong>T amount:</strong>
+    <%= expense.t_amount %>
+  </p>
+
+  <p>
+    <strong>Expense date:</strong>
+    <%= expense.expense_date %>
+  </p>
+
+  <p>
+    <strong>Categories:</strong>
+    <%= expense.categories %>
+  </p>
+
+  <p>
+    <strong>Corresponding trip:</strong>
+    <%= expense.trip.name %>
+  </p>
+
+  <p>
+    <% if expense.participants.present? %>
+          <strong>Participants:</strong>
+        <% expense.participants.each do |participant| %>
+          <%= participant.email %><br>
+        <% end %>
+    <% end %>
+  </p>
+
+</div>

@@ -1,0 +1,14 @@
+<!-- TODO: FIX THIS!!!!! -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tripParticipants = <%= raw @trip.participants.to_json %>;
+    const userOwesSummary = <%= raw @user_owes_summary.to_json %>;
+
+    console.log('Trip Participants:', tripParticipants);
+    console.log('User Owes Summary:', userOwesSummary);
+
+    showDonutChart(tripParticipants, userOwesSummary);
+});
+</script>
+
+<div id="donut-chart"></div> 

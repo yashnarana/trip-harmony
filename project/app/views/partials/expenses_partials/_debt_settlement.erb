@@ -1,0 +1,8 @@
+<h2>How to Settle Debts</h2>
+<% settlements.each do |payer, debts| %> 
+    <% debts.each do |payee, amount| %> 
+        <% if amount > 0 && payer != payee %> <!-- Check if the amount is positive and the payer is not the same as the payee -->
+        <p><%= payee %> needs to pay <%= payer %> $<%= '%.2f' % amount %></p> <!-- Display the debt settlement information -->
+        <% end %>
+    <% end %>
+<% end %>

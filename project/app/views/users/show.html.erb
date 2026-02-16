@@ -1,0 +1,163 @@
+<h1><%= @user.first_name %>'s Profile</h1>
+<p>Email: <%= @user.email %></p>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<%= link_to 'Edit Profile', edit_user_profile_path %>
+
+<h2>My Trip Summary</h2>
+
+<h3>Trips I've Created</h3>
+<% if @user_created_trips.any? %>
+  <% @user_created_trips.each_with_index do |trip, index| %>
+    <% trip_summary = @created_trips_summary[trip.id] %>
+    <% next unless trip_summary %> <!-- Skip if no summary available -->
+
+    <div class="card" style="background-color: #343a40; color: white;">
+      <div class="card-header" id="headingCreated<%= index %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseCreated<%= index %>" aria-expanded="true" aria-controls="collapseCreated<%= index %>" style="color: white; text-decoration: none;">
+            <%= trip.name || "Unnamed Trip" %>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseCreated<%= index %>" class="collapse" aria-labelledby="headingCreated<%= index %>" data-parent="#accordion">
+        <div class="card-body">
+          <p><strong>Total Spent by You:</strong> $<%= trip_summary[:total_spent] %></p>
+          <p><strong>Total Owed by You:</strong> $<%= trip_summary[:total_owe] %></p>
+
+          <h4>Participants Owe You</h4>
+          <% if trip_summary[:participants_owe].any? %>
+            <ul>
+              <% trip_summary[:participants_owe].each do |participant| %>
+                <% unless participant[:email] == @user.email %>
+                  <li><%= participant[:email] %>: $<%= participant[:owed_amount] %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No participants owe you money for this trip.</p>
+          <% end %>
+
+          <h4>You Owe Participants</h4>
+          <% if trip_summary[:participants_pay].any? %>
+            <ul>
+              <% trip_summary[:participants_pay].each do |participant| %>
+                <li><%= participant[:email] %>: $<%= participant[:pay_amount] %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>You don't owe any participants for this trip.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>You have not created any trips with expenses yet.</p>
+<% end %>
+
+<h3>Trips I've Participated In</h3>
+<% if @user_created_trips.any? %>
+  <% @user_created_trips.each_with_index do |trip, index| %>
+    <% trip_summary = @created_trips_summary[trip.id] %>
+    <% next unless trip_summary %> <!-- Skip if no summary available -->
+
+    <div class="card" style="background-color: #343a40; color: white;">
+      <div class="card-header" id="headingParticipated<%= index %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseParticipated<%= index %>" aria-expanded="true" aria-controls="collapseParticipated<%= index %>" style="color: white; text-decoration: none;">
+            <%= trip.name || "Unnamed Trip" %>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseParticipated<%= index %>" class="collapse" aria-labelledby="headingParticipated<%= index %>" data-parent="#accordion">
+        <div class="card-body">
+          <p><strong>Total Spent by You:</strong> $<%= trip_summary[:total_spent] %></p>
+          <p><strong>Total Owed by You:</strong> $<%= trip_summary[:total_owe] %></p>
+
+          <h4>Participants Owe You</h4>
+          <% if trip_summary[:participants_owe].any? %>
+            <ul>
+              <% trip_summary[:participants_owe].each do |participant| %>
+                <% unless participant[:email] == @user.email %>
+                  <li><%= participant[:email] %>: $<%= participant[:owed_amount] %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No participants owe you money for this trip.</p>
+          <% end %>
+
+          <h4>You Owe Participants</h4>
+          <% if trip_summary[:participants_pay].any? %>
+            <ul>
+              <% trip_summary[:participants_pay].each do |participant| %>
+                <li><%= participant[:email] %>: $<%= participant[:pay_amount] %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>You don't owe any participants for this trip.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>You have not participated in any trips with expenses yet.</p>
+<% end %>
+
+<h3>Debt Settlement Transaction</h3>
+
+<% if @user_created_trips.any? %>
+  <% @user_created_trips.each_with_index do |trip, index| %>
+    <% trip_summary = @created_trips_summary[trip.id] %>
+    <% next unless trip_summary %> <!-- Skip if no summary available -->
+
+    <div class="card" style="background-color: #343a40; color: white;">
+      <div class="card-header" id="headingSettlement<%= index %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSettlement<%= index %>" aria-expanded="true" aria-controls="collapseSettlement<%= index %>" style="color: white; text-decoration: none;">
+            Settlement for <%= trip.name || "Unnamed Trip" %>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseSettlement<%= index %>" class="collapse" aria-labelledby="headingSettlement<%= index %>" data-parent="#accordion">
+        <div class="card-body">
+          <h4>Who Should Pay You</h4>
+          <% if trip_summary[:participants_owe].any? %>
+            <ul>
+              <% trip_summary[:participants_owe].each do |participant| %>
+                <% unless participant[:email] == @user.email %>
+                  <li><%= participant[:email] %>: $<%= participant[:owed_amount] %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No one owes you money for this trip.</p>
+          <% end %>
+
+          <h4>Who You Need to Pay</h4>
+          <% if trip_summary[:participants_pay].any? %>
+            <ul>
+              <% trip_summary[:participants_pay].each do |participant| %>
+                <li><%= participant[:email] %>: $<%= participant[:pay_amount] %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>You don't owe anyone money for this trip.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>You have not participated in any trips with expenses yet.</p>
+<% end %>
+
+<%= link_to 'Back to Home', root_path %>

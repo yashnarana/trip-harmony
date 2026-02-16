@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+
+/* General Styles */
+body {
+    background-color: #2a2e30;
+    color: white;
+    font-size: larger;
+    font-family: "Radley", Arial, serif;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+a:hover {
+    color: lightslategray; /* Color when link is hovered */
+    text-decoration: none;
+}
+
+button {
+    background-color: white;
+    list-style-type: none;
+    border-radius: 25px;
+    padding: 10px 20px; 
+}
+
+li {
+    list-style-type: none; 
+    background-color: #2a2e30;
+    color: white;
+}
+
+/* General Typography for whole website */
+h1, h2 {
+    font-family: "Arsenal", Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 1.75rem;
+}
+
+
+/* General light background link styling */
+.navbar a, .homepage a, .expenses-container a  {
+    color: #2a2e30;
+    text-decoration: none;
+}
+
+
+
+/* Forms */
+.login, .signup {
+    margin: 10rem;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.signup .actions {
+    margin: 1.2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Miscellaneous */
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin: 3.5rem 7rem;
+}
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3N0eWxlc2hlZXRzL2FwcGxpY2F0aW9uLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJhcHBsaWNhdGlvbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogVGhpcyBpcyBhIG1hbmlmZXN0IGZpbGUgdGhhdCdsbCBiZSBjb21waWxlZCBpbnRvIGFwcGxpY2F0aW9uLmNzcy5cbiAqXG4gKiBXaXRoIFByb3BzaGFmdCwgYXNzZXRzIGFyZSBzZXJ2ZWQgZWZmaWNpZW50bHkgd2l0aG91dCBwcmVwcm9jZXNzaW5nIHN0ZXBzLiBZb3UgY2FuIHN0aWxsIGluY2x1ZGVcbiAqIGFwcGxpY2F0aW9uLXdpZGUgc3R5bGVzIGluIHRoaXMgZmlsZSwgYnV0IGtlZXAgaW4gbWluZCB0aGF0IENTUyBwcmVjZWRlbmNlIHdpbGwgZm9sbG93IHRoZSBzdGFuZGFyZFxuICogY2FzY2FkaW5nIG9yZGVyLCBtZWFuaW5nIHN0eWxlcyBkZWNsYXJlZCBsYXRlciBpbiB0aGUgZG9jdW1lbnQgb3IgbWFuaWZlc3Qgd2lsbCBvdmVycmlkZSBlYXJsaWVyIG9uZXMsXG4gKiBkZXBlbmRpbmcgb24gc3BlY2lmaWNpdHkuXG4gKlxuICogQ29uc2lkZXIgb3JnYW5pemluZyBzdHlsZXMgaW50byBzZXBhcmF0ZSBmaWxlcyBmb3IgbWFpbnRhaW5hYmlsaXR5LlxuICovXG5cbkBpbXBvcnQgXCJodHRwczovL3N0YWNrcGF0aC5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC80LjUuMi9jc3MvYm9vdHN0cmFwLm1pbi5jc3NcIjtcblxuLyogR2VuZXJhbCBTdHlsZXMgKi9cbmJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyYTJlMzA7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGZvbnQtc2l6ZTogbGFyZ2VyO1xuICAgIGZvbnQtZmFtaWx5OiBcIlJhZGxleVwiLCBBcmlhbCwgc2VyaWY7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDBweDtcbiAgICBwYWRkaW5nLXRvcDogMHB4O1xufVxuXG5hOmhvdmVyIHtcbiAgICBjb2xvcjogbGlnaHRzbGF0ZWdyYXk7IC8qIENvbG9yIHdoZW4gbGluayBpcyBob3ZlcmVkICovXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuXG5idXR0b24ge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICAgIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xuICAgIHBhZGRpbmc6IDEwcHggMjBweDsgXG59XG5cbmxpIHtcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7IFxuICAgIGJhY2tncm91bmQtY29sb3I6ICMyYTJlMzA7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG4vKiBHZW5lcmFsIFR5cG9ncmFwaHkgZm9yIHdob2xlIHdlYnNpdGUgKi9cbmgxLCBoMiB7XG4gICAgZm9udC1mYW1pbHk6IFwiQXJzZW5hbFwiLCBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xuICAgIG1hcmdpbi1ib3R0b206IDFyZW07XG4gICAgZm9udC1zaXplOiA4cmVtO1xufVxuXG5oMiB7XG4gICAgZm9udC1zaXplOiA0cmVtO1xufVxuXG5oMyB7XG4gICAgZm9udC1zaXplOiAzcmVtO1xuICAgIHBhZGRpbmc6IDFyZW07XG59XG5cbmg0IHtcbiAgICBmb250LXNpemU6IDNyZW07XG59XG5cbmg1IHtcbiAgICBmb250LXNpemU6IDEuNzVyZW07XG59XG5cblxuLyogR2VuZXJhbCBsaWdodCBiYWNrZ3JvdW5kIGxpbmsgc3R5bGluZyAqL1xuLm5hdmJhciBhLCAuaG9tZXBhZ2UgYSwgLmV4cGVuc2VzLWNvbnRhaW5lciBhICB7XG4gICAgY29sb3I6ICMyYTJlMzA7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuXG5cblxuLyogRm9ybXMgKi9cbi5sb2dpbiwgLnNpZ251cCB7XG4gICAgbWFyZ2luOiAxMHJlbTtcbiAgICBmb250LXNpemU6IDJyZW07XG4gICAgcGFkZGluZzogMnJlbTtcbn1cblxuLnNpZ251cCAuYWN0aW9ucyB7XG4gICAgbWFyZ2luOiAxLjJyZW07XG59XG5cbi8qIEZvb3RlciAqL1xuLmZvb3RlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y4ZjlmYTtcbiAgICBwYWRkaW5nOiAyMHB4IDA7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4vKiBNaXNjZWxsYW5lb3VzICovXG4uYnV0dG9ucyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAgbWFyZ2luOiAzLjVyZW0gN3JlbTtcbn1cblxuIl19 */

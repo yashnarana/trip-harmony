@@ -1,0 +1,28 @@
+<div class="homepage">
+  <h1>Your Trips</h1>
+
+  <div class="tabs">
+    <!-- Link to create a new trip -->
+    <%= link_to 'New Trip', new_trip_path, class: 'tab' %>
+  </div>
+
+  <h2>Created Trips</h2>
+  <% if @created_trips.any? %>
+    <div class="trip-list">
+      <!-- Render partial for created trips -->
+      <%= render "partials/card_partials/trip_cards" %>
+    </div>
+  <% else %>
+    <p>You haven't created any trips yet.</p>
+  <% end %>
+
+  <h2>Shared Trips</h2>
+  <% if @participating_trips.any? %>
+    <div class="trip-list">
+      <!-- Render partial for shared trips -->
+      <%= render "partials/card_partials/shared_card" %>
+    </div>
+  <% else %>
+    <p>You aren't participating in any trips yet.</p>
+  <% end %>
+</div>

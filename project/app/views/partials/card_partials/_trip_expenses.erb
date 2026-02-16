@@ -1,0 +1,9 @@
+<div class="card-block card-expenses">
+    <h3>Expenses</h3>
+    <!-- Display the total amount of expenses for the trip -->
+    <p><strong>Total:</strong> <%= trip.expenses.sum(:t_amount) %></p>
+    <!-- Button to add a new expense for the trip -->
+    <button class="btn" style="position: relative; z-index: 1" onclick="window.location.href='<%= new_trip_expense_path(trip) %>'"> 
+        Add Expense
+    </button>
+</div>

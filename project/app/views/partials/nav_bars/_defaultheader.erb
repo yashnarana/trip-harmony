@@ -1,0 +1,10 @@
+<nav class="navbar">
+    <!-- Link to the home page with the title "Split the Bill - Home" -->
+    <a class="navbar-brand text-white" id="pagetitle" href="/trips#index"> Split the Bill - Home </a>
+    <div class="buttons">
+        <!-- Link to the user's profile page -->
+        <%= link_to 'Profile', user_profile_path, class: 'nav-item nav-link button' %>
+        <!-- Link to log out the user, using the DELETE HTTP method -->
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link button', data: { confirm: 'Are you sure you want to log out?' } %>
+    </div>
+</nav>

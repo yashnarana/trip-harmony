@@ -1,0 +1,8 @@
+<!-- Header for expenses that displays total expenditures by all members of trip -->
+<h3>Total Money Spent on Trip</h3>
+<% total = 0 %>
+<% @trip.participants.each do |user| %>
+  <% user_summary = @user_owes_summary[user.id] %>
+  <% total += user_summary[:total_spent] %>
+<% end %>
+<p><strong>Total Spent:</strong> $<%= total %></p>

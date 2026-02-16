@@ -1,0 +1,54 @@
+/* Navbars for main pages */
+#initialNavbar, #defaultNavbar {
+    background-color: #2a2e30;
+    color: white;
+    height: 5rem;
+    width: auto;
+    font-size: xx-large;
+}
+
+/* Styling for the unordered list within the navbar */
+.navbar ul {
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* General link styling */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styling for individual navigation items */
+.nav-item {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Styling for the selected navigation item */
+.nav-item.selected {
+    border-bottom: 2px solid black;
+}
+
+/* Styling for button container */
+.buttons {
+    margin: 20px;
+    height: 100%;
+    width: auto;
+}
+
+/* General button styling */
+button {
+    font-size: 1.75rem;
+    margin: 0px 10px;
+}
+
+/* Link styling within the navbar */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.75rem;
+}

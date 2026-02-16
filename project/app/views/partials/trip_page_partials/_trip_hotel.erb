@@ -1,0 +1,10 @@
+<%# This partial renders hotel information for a trip if a hotel is present.
+<%# It displays the hotel name and, if available, the check-in time formatted as "HH:MM". %>
+<% if @trip.hotel.present? %>
+    <h5><strong>Hotel:</strong></h5>
+    <p><%= @trip.hotel %></p>
+    <% if @trip.check_in.present? %>
+        <h6><strong>Check-in Time:</strong></h6>
+        <p><%= @trip.check_in.strftime("%H:%M") %></p>
+    <% end %>
+<% end %>
