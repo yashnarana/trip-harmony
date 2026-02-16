@@ -1,4 +1,4 @@
-# Project 6 - Readme
+# Trip Harmony - Readme
 
 ### Project Members
 Kathleen Duffey, Yashna Rana, Yusen Peng, Lucas Kronenfeld
